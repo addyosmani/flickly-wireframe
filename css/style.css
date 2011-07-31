@@ -1,0 +1,93 @@
+body {
+	background: #ccc;
+	margin: 0 auto;
+}
+
+#appview {
+	margin: 0 auto;
+}
+
+#resultlist ul {
+	list-style-type: none;
+	margin-left: -25px;
+}
+
+#resultlist ul li {
+	float: left;
+	padding: 2px;
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+	margin: 2px;
+	border-radius: 5px;
+}
+
+#resultlist ul li span {
+	clear: both;
+}
+
+#resultlist ul li img {
+	border-radius: 5px;
+	-moz-box-shadow: 0px 2px 4px #000;
+	-webkit-box-shadow: 0px 2px 4px #000;
+	box-shadow: 0px 2px 4px #000;
+	border-top: 1px solid rgb(255, 255, 255);
+	border-top: 1px solid rgba(255, 255, 255, .5);
+	width: 80px;
+	height: 80px;
+	display: none;
+}
+
+#resultlist ul li img:hover {
+	-moz-box-shadow: 0px 2px 4px #fff;
+	-webkit-box-shadow: 0px 2px 4px #fff;
+	box-shadow: 0px 2px 4px #fff;
+}
+
+.loader {
+	background: url(/img/loader.gif) no-repeat center center;
+	width: 110px;
+	height: 110px;
+}
+
+.search-meta {
+	text-align: center;
+}
+
+.ui-lightbox {
+	width: 90%;
+	height: 90%;
+	background: transparent;
+	position: absolute;
+	z-index: 50;
+	display: none;
+	margin: 0 auto;
+}
+
+#content-main{
+}
+
+
+#logo{
+	text-align:center;
+	margin:0 auto;
+	width:200px;
+	height:170px;
+	float:left;
+
+}
+
+#sub-header{
+	height:170px;
+	width:200px;
+	text-align:center;
+	margin:0 auto;
+}
+
+.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: none !important; border-radius: none !important; }
+#search-icon .ui-icon { background:  url(../img/icons/06-magnify.png) 50% 50% no-repeat; background-size: 24px 22px; }
+#options-icon .ui-icon { background:  url(..//img/icons/36-toolbox.png) 50% 50% no-repeat; background-size: 24px 16px;  }
+#instructions-icon .ui-icon { background:  url(..//img/icons/179-notepad.png) 50% 50% no-repeat;  background-size: 12px 26px; }
+#source-icon .ui-icon { background:  url(..//img/icons/157-wrench.png) 50% 50% no-repeat;  background-size: 22px 27px; }
+#about-icon .ui-icon { background:  url(..//img/icons/111-user.png) 50% 50% no-repeat;  background-size: 20px 24px; }

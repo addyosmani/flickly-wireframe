@@ -1,0 +1,442 @@
+<!doctype html>
+<html manifest='manifest.appcache'>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Flickly</title>
+		<link rel="stylesheet" media="all" href=""/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="shortcut" href="img/flicklylogo.png">
+		<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" />
+		<link rel="stylesheet"  href="css/jquery.ui.datepicker.css" />
+		<link rel="stylesheet"  href="css/style.css" />
+	</head>
+	
+
+<body lang="en">
+
+<!--
+/********************************************************
+*  Index 
+*********************************************************/
+-->		
+
+	<div id="index" data-role="page" data-theme="b" class="type-interior">
+			<div data-role="content"  data-theme="c" id="content-main">
+
+				<div id="sub-header">
+						<img id="logo" src="img/flicklylogo.png" alt="Flickly" />
+				</div>
+
+					<ul data-role="listview" data-inset="true">
+						<li>
+						<form method="post" action="index.html#search" id='queryForm' name="queryForm">
+								<label for="searchbox">Search for:</label>
+								<input id="searchbox" type="search" name="searchbox" />
+						</form>
+						</li>
+				
+						<li class="cent">
+							<a href="#views">Dynamic Views</a>
+						</li>
+						
+					</ul>
+					</li>				
+				</ul>
+				<div class="search-meta"></div>
+		</div><!-- /content -->
+		
+
+		<!--footer menu-->
+		<div data-role="footer" class="nav-glyphish-example"  data-position="fixed">
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul>
+				<li><a href="#index" id="search-icon" data-icon="custom">Search</a></li>
+				<li><a href="#options" id="options-icon" data-icon="custom">Options</a></li>
+				<li><a href="#instructions" id="instructions-icon" data-icon="custom">Help</a></li>
+				<li><a href="#source" id="source-icon" data-icon="custom">Source</a></li>
+				<li><a href="#about" id="about-icon" data-icon="custom">About</a></li>
+			</ul>
+			</div>
+		</div>
+		<!--end footer-->
+	
+	</div>
+
+
+<!--
+/********************************************************
+* Dynamic Views (both static for wireframe)
+*********************************************************/
+-->
+
+
+	  <div id="views" data-role="page" data-theme="b"> 
+		<div data-role="header" data-theme="a"> 
+			<h1>Dynamic Views</h1> 
+		</div> 
+		<div data-role="content"> 
+			<ul data-role="listview" data-inset="true">
+				<li class="cent">
+					<a href="#search">Search Results</a>
+				</li>
+				<li class="cent">
+					<a href="#photo">Single Photo</a>
+				</li>
+				<li class="cent">
+					<a href="#share">Share Photo</a>
+				</li>
+			</ul>
+		</div> 
+		<!--footer menu-->
+		<div data-role="footer" class="nav-glyphish-example"  data-position="fixed">
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul>
+				<li><a href="#index" id="search-icon" data-icon="custom">Search</a></li>
+				<li><a href="#options" id="options-icon" data-icon="custom">Options</a></li>
+				<li><a href="#instructions" id="instructions-icon" data-icon="custom">Instructions</a></li>
+				<li><a href="#source" id="source-icon" data-icon="custom">Source</a></li>
+				<li><a href="#about" id="about-icon" data-icon="custom">About</a></li>
+			</ul>
+			</div>
+		</div>
+		<!--end footer-->			
+	  </div> 
+	  
+<!--
+/********************************************************
+*  Options
+*********************************************************/
+-->
+
+
+	  <div id="options" data-role="page" data-theme="b"> 
+		<div data-role="header" data-theme="a"> 
+			<h1>Options</h1> 
+		</div> 
+		<div data-role="content"> 
+		
+			<!--search type--->
+			<label for="sortBy" class="select ui-select">Search by:</label>
+			<select id="sortBy" data-native-menu="false">
+				<option value="interestingness-asc" selected>Interesting</option>
+				<option value="relevance">Relevance</option>
+				<option value="date-posted-asc">Date Posted</option>
+			</select>
+			<!--end search type-->
+				
+			<!--safe search--->
+			<label for="safeSearch" class="select ui-select">Safe search:</label>
+			<select id="safeSearch" data-native-menu="false">
+				<option value="1">Safe</option>
+				<option value="2" selected>Moderate</option>
+				<option value="3">Restricted</option>
+			</select>
+			<!--end safe search-->
+								
+			<!--max results shown slider-->
+			<div data-role="fieldcontain">
+				<label for="slider">Results per page:</label>
+				<input type="range" name="slider" id="slider" value="10" min="5" max="25"  />
+			</div>
+			<!--end slider-->
+			
+			<!--is geo-->
+			<fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+				<legend>Geo-tagged? :</legend>
+				<input type="radio" name="geo-choice-z1" id="geo-choice-y1" value="1" />
+				<label for="geo-choice-y1">On</label>
+				<input type="radio" name="radio-choice-z1" id="geo-choice-z1" value="0"  checked="checked" />
+				<label for="geo-choice-z1">Off</label>
+			</fieldset>
+			<!--end geo-->
+		
+			<!--date pickers for max min taken-->
+			<div data-role="collapsible" data-collapsed="true">
+			<h3>Select date ranges</h3>
+			<form action="#" method="get">
+				<div data-role="fieldcontain">
+					<label for="date">Min taken date:</label>
+					<input type="date" name="date" id="date-min" value=""  />
+				</div>		
+				
+				<div data-role="fieldcontain">
+					<label for="date">Max taken date:</label>
+					<input type="date" name="date" id="date-max" value=""  />
+				</div>
+				
+			</form>	
+			</div>
+			<!--end datepickers--> 
+		</div> 
+			
+			
+		<!--footer menu-->
+		<div data-role="footer" class="nav-glyphish-example"  data-position="fixed">
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul>
+				<li><a href="#index" id="search-icon" data-icon="custom">Search</a></li>
+				<li><a href="#options" id="options-icon" data-icon="custom">Options</a></li>
+				<li><a href="#instructions" id="instructions-icon" data-icon="custom">Help</a></li>
+				<li><a href="#source" id="source-icon" data-icon="custom">Source</a></li>
+				<li><a href="#about" id="about-icon" data-icon="custom">About</a></li>
+			</ul>
+			</div>
+		</div>
+		<!--end footer-->
+	
+	  </div> 
+
+
+<!--
+/********************************************************
+*  Help
+*********************************************************/
+-->
+
+
+	  <div id="instructions" data-role="page" data-theme="b"> 
+		<div data-role="header" data-theme="a"> 
+			<h1>Help</h1> 
+		</div> 
+		<div data-role="content"> 
+			<ul data-role="listview">
+				<li data-role="list-divider">Quick guidelines to get started</li>
+				<li>
+						<h3>Searching</h3>
+						<p><strong>Looking up photos on Flickr is simple.</strong></p>
+						<p>Enter a term and hit 'enter' or search</p>
+					
+				</li>
+				<li>					
+					<h3>Options</h3>
+					<p><strong>Advanced search options are available.</strong></p>
+					<p>Search by type, geo-location and more.</p>
+				</li>
+			</ul>
+		</div> 
+		<!--footer menu-->
+		<div data-role="footer" class="nav-glyphish-example"  data-position="fixed">
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul>
+				<li><a href="#index" id="search-icon" data-icon="custom">Search</a></li>
+				<li><a href="#options" id="options-icon" data-icon="custom">Options</a></li>
+				<li><a href="#instructions" id="instructions-icon" data-icon="custom">Help</a></li>
+				<li><a href="#source" id="source-icon" data-icon="custom">Source</a></li>
+				<li><a href="#about" id="about-icon" data-icon="custom">About</a></li>
+			</ul>
+			</div>
+		</div>
+		<!--end footer-->			
+	  </div> 
+	  
+	  
+
+<!--
+/********************************************************
+*  Source
+*********************************************************/
+-->
+
+
+	  <div id="source" data-role="page" data-theme="b"> 
+		<div data-role="header" data-theme="a"> 
+			<h1>Source</h1> 
+		</div> 
+		<div data-role="content"> 
+			<ul data-role="listview" data-inset="true">
+				<li><a href="http://github.com/addyosmani"><img src="img/icons/github.png" alt="Github" class="ui-li-icon">Github</a></li>
+				<li><a href="#"><img src="img/icons/demo.png" alt="Demo" class="ui-li-icon">Demo</a></li>
+			</ul>
+		</div> 
+		<!--footer menu-->
+		<div data-role="footer" class="nav-glyphish-example"  data-position="fixed">
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul>
+				<li><a href="#index" id="search-icon" data-icon="custom">Search</a></li>
+				<li><a href="#options" id="options-icon" data-icon="custom">Options</a></li>
+				<li><a href="#instructions" id="instructions-icon" data-icon="custom">Help</a></li>
+				<li><a href="#source" id="source-icon" data-icon="custom">Source</a></li>
+				<li><a href="#about" id="about-icon" data-icon="custom">About</a></li>
+			</ul>
+			</div>
+		</div>
+		<!--end footer-->			
+	  </div> 
+	  
+<!--
+/********************************************************
+*  About
+*********************************************************/
+-->
+
+
+	  <div id="about" data-role="page" data-theme="b"> 
+		<div data-role="header" data-theme="a"> 
+			<h1>About</h1> 
+		</div> 
+		<div data-role="content"> 
+			<p>A wireframe for the about page.</p>
+		</div> 
+		<!--footer menu-->
+		<div data-role="footer" class="nav-glyphish-example"  data-position="fixed">
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul>
+				<li><a href="#index" id="search-icon" data-icon="custom">Search</a></li>
+				<li><a href="#options" id="options-icon" data-icon="custom">Options</a></li>
+				<li><a href="#instructions" id="instructions-icon" data-icon="custom">Help</a></li>
+				<li><a href="#source" id="source-icon" data-icon="custom">Source</a></li>
+				<li><a href="#about" id="about-icon" data-icon="custom">About</a></li>
+			</ul>
+			</div>
+		</div>
+		<!--end footer-->			
+	  </div> 
+	  
+<!--
+/********************************************************
+*  Share
+*********************************************************/
+-->
+
+
+	  <div id="share" data-role="page" data-theme="b"> 
+		<div data-role="header" data-theme="a"> 
+			<h1>Share Photo</h1> 
+		</div> 
+		<div data-role="content"> 
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#"><img src="img/icons/facebook.png" alt="Facebook" class="ui-li-icon">Share On Twitter</a></li>
+				<li><a href="#"><img src="img/icons/twitter.png" alt="Twitter" class="ui-li-icon">Share On Facebook</a></li>
+			</ul>
+		</div> 
+		<!--footer menu-->
+		<div data-role="footer" class="nav-glyphish-example"  data-position="fixed">
+			<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+			<ul>
+				<li><a href="#index" id="search-icon" data-icon="custom">Search</a></li>
+				<li><a href="#options" id="options-icon" data-icon="custom">Options</a></li>
+				<li><a href="#instructions" id="instructions-icon" data-icon="custom">Help</a></li>
+				<li><a href="#source" id="source-icon" data-icon="custom">Source</a></li>
+				<li><a href="#about" id="about-icon" data-icon="custom">About</a></li>
+			</ul>
+			</div>
+		</div>
+		<!--end footer-->			
+	  </div>
+	  
+<!--
+/********************************************************
+*  Single photo view
+*********************************************************/
+-->
+
+
+	  <div id="photo" data-role="page" data-theme="d"> 
+		<div data-role="header" data-theme="a"> 
+			<h1>Viewing photo</h1> 
+		</div> 
+		<div data-role="content"> 
+			<div id="photoview">
+			<img title="Sample title" src="http://farm4.static.flickr.com/3092/2785893493_2c7316cd62_m.jpg"/>
+			</div>
+			
+			<ul id="photoviewholder"  data-role="listview" data-inset="true" data-theme="c" data-dividertheme="c">
+			
+			<ul data-role="listview" data-inset="true">
+				<li>Title: sample</li>
+				<li>Description: sample</li>
+				<li>Views: 1001</li> 
+				<li>Location: sample</li>
+				<li>Taken by: John Smith</li>
+				<li>Date taken: 10/09/12</li>
+				<li><a href="http://www.flickr.com/photos/oude/2785893493/">View Original</a></li>
+			</ul>
+			
+			</ul> 
+		</div> 
+			
+	  </div> 
+	   
+<!--
+/********************************************************
+*  Search results
+*********************************************************/
+-->
+
+	  <div id="search" data-role="page" data-theme="d"> 
+
+		<div data-role="header" data-theme="a" data-role="controlgroup"> 
+			<h1>Search Results</h1>
+			<a href="#index" id="prevSet">Previous</a>
+			<a href="#" class="ui-btn-active" id="nextSet">Next</a>
+			
+		</div> 
+		<div data-role="content"> 
+			<ul id="listviewholder" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="c">
+				<li>
+					<a class='ui-result' title='Sample' href="#photo">
+						<img title="Sample title" src="http://farm4.static.flickr.com/3092/2785893493_2c7316cd62_s.jpg"/>
+						<h3>Sample Title</h3> 
+					</a>
+			   </li>
+				<li>
+					<a class='ui-result' title='Sample' href="#photo">
+						<img title="Sample title" src="http://farm4.static.flickr.com/3092/2785893493_2c7316cd62_s.jpg"/>
+						<h3>Sample Title</h3> 
+					</a>
+			   </li>
+				<li>
+					<a class='ui-result' title='Sample' href="#photo">
+						<img title="Sample title" src="http://farm4.static.flickr.com/3092/2785893493_2c7316cd62_s.jpg"/>
+						<h3>Sample Title</h3> 
+					</a>
+			   </li>
+				<li>
+					<a class='ui-result' title='Sample' href="#photo">
+						<img title="Sample title" src="http://farm4.static.flickr.com/3092/2785893493_2c7316cd62_s.jpg"/>
+						<h3>Sample Title</h3> 
+					</a>
+			   </li>
+				<li>
+					<a class='ui-result' title='Sample' href="#photo">
+						<img title="Sample title" src="http://farm4.static.flickr.com/3092/2785893493_2c7316cd62_s.jpg"/>
+						<h3>Sample Title</h3> 
+					</a>
+			   </li>
+			</ul> 
+		</div> 
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+			<ul><a href="#index" class="ui-btn-active" class="ui-btn-right"  data-direction="reverse">New Search</a></ul>
+			</div>
+		</div>
+		
+	  </div> 
+
+
+<!--
+/********************************************************
+*  Script management
+*********************************************************/
+-->
+
+		<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/labjs/1.2.0/LAB.min.js"></script>
+		<script type="text/javascript">
+		$LAB
+		.setOptions({AlwaysPreserveOrder:true})
+		.script("app/libs/jquery-1.6.2.min.js")
+		.script("app/libs/jQuery.ui.datepicker.js")
+		.script("app/libs/jquery.ui.datepicker.mobile.js")
+		.script("http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js").wait(function(){
+			$( "#date-max,#date-min" ).datepicker();
+		});
+		</script>
+
+		<div class="ui-tint">
+		</div>
+		
+				
+	</body>
+</html>
